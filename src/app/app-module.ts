@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing-module';
 import { App } from './app';
 import { Cabecalho } from './componentes/cabecalho/cabecalho';
 import { Rodape } from './componentes/rodape/rodape';
+import { CriarPensamento } from './componentes/pensamentos/criar-pensamento/criar-pensamento';
 
 @NgModule({
   declarations: [
     App,
     Cabecalho,
-    Rodape
+    Rodape,
+    CriarPensamento
   ],
   imports: [
     BrowserModule,
