@@ -1,16 +1,10 @@
 {
   "pensamentos": [
     {
-      "id": "3",
-      "conteudo": "Pensamento",
-      "autoria": "Pensador",
+      "id": "bd8c",
+      "conteudo": "AAA",
+      "autoria": "aaa",
       "modelo": "modelo1"
-    },
-    {
-      "id": "e44b",
-      "conteudo": "Pensamento teste",
-      "autoria": "Pensador",
-      "modelo": "modelo3"
     }
   ]
 }

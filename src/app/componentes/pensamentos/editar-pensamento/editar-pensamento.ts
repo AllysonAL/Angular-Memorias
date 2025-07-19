@@ -2,6 +2,7 @@ import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { IPensamento } from '../pensamento';
 import { PensamentoService } from '../pensamento-service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-editar-pensamento',
@@ -11,28 +12,42 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 
 export class EditarPensamento implements OnInit{
-  pensamento! : IPensamento;
+  formulario! : FormGroup;
 
-  constructor(private service : PensamentoService, private router : Router, private route : ActivatedRoute, private cdr : ChangeDetectorRef){}
+  constructor(private service : PensamentoService, private router : Router, private route : ActivatedRoute, private cdr : ChangeDetectorRef, private formBuilder : FormBuilder){}
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
 
     if(id){
       this.service.buscarPorId(id).subscribe((pensamento) =>{
-          this.pensamento = pensamento;
-          this.cdr.detectChanges();
+        this.formulario = this.formBuilder.group({
+        id: [id],
+        conteudo: [pensamento.conteudo, Validators.compose([Validators.required, Validators.pattern(/(.|\s)*\S(.|\s)*/)])],
+        autoria: [pensamento.autoria,  Validators.compose([Validators.required, Validators.minLength(3), Validators.pattern(/^[^A-Z]*$/)])],
+        modelo: [pensamento.modelo,  [Validators.required]]
+      });
+        this.cdr.detectChanges();
       })
     }
   }
 
   editarPensamento(){
-    this.service.editar(this.pensamento).subscribe(() =>{
+    this.service.editar(this.formulario.value).subscribe(() =>{
       this.router.navigate(['/listarPensamento']);
     })
   }
 
   cancelar(){
     this.router.navigate(['/listarPensamento']);
+  }
+
+  habilitarBotao() : string {
+    if (this.formulario.valid){
+      return 'botao';
+    }
+    else{
+      return 'botao__desabilitado';
+    }
   }
 }

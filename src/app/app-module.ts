@@ -9,7 +9,7 @@ import { CriarPensamento } from './componentes/pensamentos/criar-pensamento/cria
 import { ListarPensamento } from './componentes/pensamentos/listar-pensamento/listar-pensamento';
 import { Pensamento } from './componentes/pensamentos/pensamento/pensamento';
 import { provideHttpClient } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ExcluirPensamento } from './componentes/pensamentos/excluir-pensamento/excluir-pensamento';
 import { EditarPensamento } from './componentes/pensamentos/editar-pensamento/editar-pensamento';
 
@@ -27,7 +27,8 @@ import { EditarPensamento } from './componentes/pensamentos/editar-pensamento/ed
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     provideBrowserGlobalErrorListeners(),
