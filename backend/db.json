@@ -4,43 +4,50 @@
       "id": "bd8c",
       "conteudo": "AAA",
       "autoria": "aaa",
-      "modelo": "modelo1"
+      "modelo": "modelo1",
+      "favorito": false
     },
     {
       "id": "3e0c",
       "conteudo": "BBB",
       "autoria": "bbb",
-      "modelo": "modelo2"
+      "modelo": "modelo2",
+      "favorito": true
     },
     {
       "id": "2284",
       "conteudo": "CCC",
       "autoria": "ccc",
-      "modelo": "modelo3"
+      "modelo": "modelo3",
+      "favorito": false
     },
     {
       "id": "3eaf",
       "conteudo": "DDD",
       "autoria": "ddd",
-      "modelo": "modelo1"
+      "modelo": "modelo1",
+      "favorito": false
     },
     {
       "id": "13fb",
       "conteudo": "EEE",
       "autoria": "eee",
-      "modelo": "modelo2"
+      "modelo": "modelo2",
+      "favorito": false
     },
     {
       "id": "2e72",
       "conteudo": "FFF",
       "autoria": "fff",
-      "modelo": "modelo3"
+      "modelo": "modelo3",
+      "favorito": false
     },
     {
       "id": "5e0a",
       "conteudo": "GGG",
       "autoria": "ggg",
-      "modelo": "modelo1"
+      "modelo": "modelo1",
+      "favorito": false
     }
   ]
 }

@@ -25,7 +25,8 @@ export class EditarPensamento implements OnInit{
         id: [id],
         conteudo: [pensamento.conteudo, Validators.compose([Validators.required, Validators.pattern(/(.|\s)*\S(.|\s)*/)])],
         autoria: [pensamento.autoria,  Validators.compose([Validators.required, Validators.minLength(3), Validators.pattern(/^[^A-Z]*$/)])],
-        modelo: [pensamento.modelo,  [Validators.required]]
+        modelo: [pensamento.modelo,  [Validators.required]],
+        favorito : [false]
       });
         this.cdr.detectChanges();
       })
