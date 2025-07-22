@@ -1,6 +1,6 @@
 import { PensamentoService } from '../pensamento-service';
 import { IPensamento } from './../pensamento';
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectorRef, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-pensamento',
@@ -11,9 +11,10 @@ import { Component, Input } from '@angular/core';
 
 export class Pensamento {
 
-  constructor(private service : PensamentoService){}
+  constructor(private cdr : ChangeDetectorRef){}
 
   @Input() pensamento!: IPensamento;
+  @Output() atualizacaoFavorito = new EventEmitter();
 
  larguraPensamento(): string {
     if(this.pensamento.conteudo.length >= 256) {
@@ -30,6 +31,7 @@ export class Pensamento {
   }
 
   atualizarFavorito(){
-    this.service.mudarFavorito(this.pensamento).subscribe();
+    this.atualizacaoFavorito.emit(this.pensamento);
+    this.cdr.detectChanges();
   }
 }

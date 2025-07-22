@@ -12,14 +12,14 @@
       "conteudo": "BBB",
       "autoria": "bbb",
       "modelo": "modelo2",
-      "favorito": true
+      "favorito": false
     },
     {
       "id": "2284",
       "conteudo": "CCC",
       "autoria": "ccc",
       "modelo": "modelo3",
-      "favorito": false
+      "favorito": true
     },
     {
       "id": "3eaf",

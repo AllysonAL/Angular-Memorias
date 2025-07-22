@@ -13,8 +13,7 @@ export class PensamentoService {
 
   constructor(private http : HttpClient) { }
 
-  listar(pagina : number, filtro : string) : Observable<IPensamento[]> {
-    debugger;
+  listar(pagina : number, filtro : string, favorito : boolean) : Observable<IPensamento[]> {
     const itensPorPagina = 6;
 
     let params = new HttpParams()
@@ -23,6 +22,10 @@ export class PensamentoService {
 
       if (filtro.trim().length > 2){
         params = params.set("autoria", filtro);
+      }
+
+      if (favorito){
+        params = params.set("favorito", favorito);
       }
 
       return this.http.get<IPensamento[]>(this.API, {params});
